@@ -33,10 +33,13 @@ public class PlayerMovement : MonoBehaviour
         {
             movementDirection = new Vector3(input.x, 0, input.y);
             movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);  
-            if (value.started) //Sets the look direction only when movement has started.
+            if (value.performed) //Sets the look direction only when movement has started.
             {
                 lookDirection = movementDirection;
             }
         }
     }
+
+
+
 }
