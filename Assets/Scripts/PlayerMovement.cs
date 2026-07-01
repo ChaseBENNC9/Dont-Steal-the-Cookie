@@ -1,7 +1,8 @@
 //Manges players movement input and rotates the player to face in the direction of movement
-using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 5f;
