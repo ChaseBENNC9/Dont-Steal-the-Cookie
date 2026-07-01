@@ -17,19 +17,14 @@ What lengths will you go to get one of those delicious cookies.
 
 ## Development Issues / Todo List
 **Sorted by Order of Importance / Appearance**
-
-- Top Down Perspective (3D / 2D)
-- PC / Web / Mobile
 - Player movement (Keyboard)
-- Goal system
-- Room Navigation (Fog of War)
-- Pathfinder (basic)
 - Object Interaction (e.g. Move Stool)
 - Item Interaction (e.g. Take Cookie)
+- Goal system
+- Room Navigation (Fog of War)
+- Pathfinder Enemy
 - Hide Interaction
-- Search Pathfinder
-- Door Lock
-- Door Key
+- Door Lock and Key
 - Custom Choice Character Name
 - Custom Choice Character Appearance
 - Speech Boxes
