@@ -1,0 +1,42 @@
+//Manges players movement input and rotates the player to face in the direction of movement
+using System.Diagnostics.CodeAnalysis;
+using UnityEngine;
+using UnityEngine.InputSystem;
+public class PlayerMovement : MonoBehaviour
+{
+    [SerializeField] private float movementSpeed = 5f;
+    private Vector3 movementDirection;
+    private Vector3 lookDirection;
+
+    private CharacterController characterController;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Player will move based on the input and face in the same direction
+        characterController.Move(movementSpeed * movementDirection * Time.deltaTime);
+        transform.forward = lookDirection;
+        
+
+    }
+
+    public void OnMove(InputAction.CallbackContext value)
+    {
+        Vector2 input = value.ReadValue<Vector2>();
+        {
+            movementDirection = new Vector3(input.x, 0, input.y);
+            movementDirection = Vector3.ClampMagnitude(movementDirection, 1f);  
+            if (value.started) //Sets the look direction only when movement has started.
+            {
+                lookDirection = movementDirection;
+            }
+        }
+    }
+}
