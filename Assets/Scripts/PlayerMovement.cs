@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 5f;
+    public bool enableMovement;
     private Vector3 movementDirection;
     private Vector3 lookDirection;
 
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         lookDirection = transform.forward;
         characterController = GetComponent<CharacterController>();
+        enableMovement = true;
     }
 
 
@@ -23,8 +25,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Player will move based on the input and face in the same direction
-        characterController.Move(movementSpeed * movementDirection * Time.deltaTime);
-        transform.forward = lookDirection;
+        if (enableMovement)
+        {
+            characterController.Move(movementSpeed * movementDirection * Time.deltaTime);
+        }
+            transform.forward = lookDirection;
         
 
     }

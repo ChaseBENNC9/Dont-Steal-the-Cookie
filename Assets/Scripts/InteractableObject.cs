@@ -1,22 +1,23 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class InteractableObject : MonoBehaviour
 {
     public string myThing;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool interactable;
+    public bool interacted;
+
+    void Awake()
     {
-        
+        interactable = true;
+        interacted = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Interact()
     {
-        
-    }
-
-    public void Interact()
-    {
-        print(myThing);
+        interacted = !interacted;
     }
 }
