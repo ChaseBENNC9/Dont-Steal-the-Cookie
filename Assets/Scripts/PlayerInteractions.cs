@@ -1,15 +1,34 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerInteractions : MonoBehaviour
 {
 
-    private InteractableObject target;
+    public InteractableObject target;
+    public List<InteractableObject> nearbyInteractables = new List<InteractableObject>();
+
+    void Update()
+    {
+        if( nearbyInteractables.Count != 0)
+        {
+            
+            target = nearbyInteractables[nearbyInteractables.Count - 1];
+        }
+        else
+        {
+            target = null;
+        }
+        if (target != null && !target.interactable)
+        {
+            nearbyInteractables.Remove(target);
+        }
+    }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<InteractableObject>(out var obj))
+        if (other.gameObject.TryGetComponent<InteractableObject>(out var obj) && obj.interactable && !nearbyInteractables.Contains(obj))
         {
-            target = obj; 
+            nearbyInteractables.Add(obj);
         }
     }
 
@@ -17,9 +36,9 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<InteractableObject>(out var obj))
         {
-            if( obj == target)
+            if(nearbyInteractables.Contains(obj))
             {
-                target = null;
+                nearbyInteractables.Remove(obj);
             }
         }
     }
