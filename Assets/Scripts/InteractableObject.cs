@@ -6,11 +6,10 @@ using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
-    public string myThing;
     public bool interactable;
     public bool interacted;
 
-    void Awake()
+    protected virtual void Awake()
     {
         interactable = true;
         interacted = false;
