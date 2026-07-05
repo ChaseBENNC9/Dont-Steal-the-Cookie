@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Testing.unity
     guid: f90351a34569b9c4a96708e4f79e8dfb
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: ccf7d54b4da459f429afbab79389b4c9
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
