@@ -8,17 +8,33 @@ using System.Collections.Generic;
         KEYBOARD,
         UNKNOWN
     }
+    public enum SceneTypes
+{
+    MENU,
+    GAME
+}
 public class InputTypeManager : MonoBehaviour
 {
     public InputTypes currentInputType;
+    public static InputTypeManager Instance;
     private void Awake()
     {
-       currentInputType = GetInputDevice(GetComponent<PlayerInput>());
        UpdateUI();
+       currentInputType = GetInputDevice(GetComponent<PlayerInput>());
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Destroy the duplicate
+            return;
+        }
+
+        // Set the active instance and protect it from destruction
+        Instance = this;
     }
     public void OnInputDeviceChange(PlayerInput playerInput)
     {
         currentInputType = GetInputDevice(playerInput);
+        print("CHANGED DEVICE!!");
+        print(currentInputType);
         UpdateUI();
     }
 
@@ -36,10 +52,8 @@ public class InputTypeManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        print("HI");
         Cursor.visible = currentInputType == InputTypes.KEYBOARD;
         MenuTooltipIcon[] icons = GameObject.FindObjectsByType<MenuTooltipIcon>();
-        print(icons.Length);
         foreach (MenuTooltipIcon icon in icons)
         {
             icon.UpdateUI(currentInputType);

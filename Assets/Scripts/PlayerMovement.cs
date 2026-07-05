@@ -1,4 +1,5 @@
 //Manges players movement input and rotates the player to face in the direction of movement
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,15 @@ public class PlayerMovement : MonoBehaviour
     {
         lookDirection = transform.forward;
         characterController = GetComponent<CharacterController>();
+        if (InputTypeManager.Instance != null)
+        {
+            Destroy(InputTypeManager.Instance.gameObject);
+            GetComponent<PlayerInput>().enabled = false;
+            GetComponent<PlayerInput>().enabled = true;
+            
+            
+        }
+
         enableMovement = true;
     }
 

@@ -34,27 +34,23 @@ public class Door : InteractableObject
             {
                 if (playerInventory.currentItem.GetComponent<InteractableObject>() == myKey)
                 {
-                    Debug.Log("UNLOCKED");
-                    Debug.Log("OPEN");
+
 
                     isLocked = false;
 
                 }
                 else
                 {
-                    Debug.Log("IT'S LOCKED");
 
                 }
             }
 
             else
             {
-                Debug.Log("IT'S LOCKED");
             }
         }
         else
         {
-            Debug.Log("OPEN");
         }
     }
 }

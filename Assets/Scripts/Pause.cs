@@ -22,7 +22,6 @@ public class Pause : MonoBehaviour
         if(value.started)
         {
             gamePaused = !gamePaused;
-            print("Is Game Paused? " + gamePaused);
             gameObject.SetActive(gamePaused);
         }
     }

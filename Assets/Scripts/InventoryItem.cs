@@ -20,12 +20,10 @@ public class InventoryItem : MonoBehaviour
         if (playerInventory.currentItem == null)
         {
             playerInventory.currentItem = item;
-            Debug.Log("Acquired " + item.name);
             return true;
         }
         else
         {
-            Debug.Log("Something already equipped");
             return false;
         }
     }
