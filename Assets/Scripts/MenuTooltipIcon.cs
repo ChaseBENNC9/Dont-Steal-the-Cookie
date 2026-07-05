@@ -9,9 +9,9 @@ public class MenuTooltipIcon : MonoBehaviour
     public Image image;
     private Sprite current;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
+        UpdateUI(InputTypeManager.Instance.currentInputType);
     }
 
     // Update is called once per frame
@@ -30,7 +30,6 @@ public class MenuTooltipIcon : MonoBehaviour
                 current = gamepadIcon;
                 break;
         }
-        Debug.Log(inputType);
         image.GetComponent<Image>().sprite = current;
     }
 }

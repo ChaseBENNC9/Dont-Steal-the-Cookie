@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuButtons : MonoBehaviour
@@ -10,4 +11,19 @@ public class MenuButtons : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void SelectButton(Button button)
+    {
+        button.Select();
+    }
+    public void Options()
+    {
+        SceneManager.LoadScene("Options");
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+
 }
