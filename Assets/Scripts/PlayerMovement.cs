@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         //Player will move based on the input and face in the same direction
         if (enableMovement)
         {
-            characterController.Move(movementSpeed * movementDirection * Time.deltaTime);
+            characterController.SimpleMove(movementSpeed * movementDirection);
         }
             transform.forward = lookDirection;
         
