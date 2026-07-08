@@ -3,7 +3,7 @@
 ## Description
 (Don't) Steal the Cookie is a **Puzzle / Stealth Game** about doing something we have probably all tried at some point.
 
-It's the weekend and your mum has baked some cookies.  
+It's the school holidays and your mum has baked some cookies.  
 She warned you not to take one but they smell so good!
 
 What lengths will you go to get one of those delicious cookies.
@@ -12,26 +12,36 @@ What lengths will you go to get one of those delicious cookies.
 - WASD: Movement  
 - E: Interact  
 - Touch Screen support
+- Gamepad Support
 
-
+Top Down Perspective
+3d 
+PC / Web / Mobile
 
 ## Development Issues / Todo List
-**Sorted by Order of Importance / Appearance**
-- Player movement (Keyboard)
-- Object Interaction (e.g. Move Stool)
-- Item Interaction (e.g. Take Cookie)
-- Goal system
+
+- Player movement  Touch / Keyboard / Gamepad 
+- Object Interaction (eg. Move Stool)
+- Item Interaction (eg. Take Cookie)
+- Door Lock and Key 
+
+- Objectives UI and Diologue
+- Hide Interaction 
 - Room Navigation (Fog of War)
-- Pathfinder Enemy
-- Hide Interaction
-- Door Lock and Key
+
+- Pathfinder
+
+- Main Menu
+- Settings 
+- Pause
+- Menu Navigation Touch / Keyboard / Gamepad 
+- Menu Icons (Keyboard / Gamepad)
+
 - Custom Choice Character Name
 - Custom Choice Character Appearance
 - Speech Boxes
 - Assets
-- Mobile Compatibility
-- Player Movement (Touch)
-- Web Compatibility?
+
 
 ---
 
