@@ -22,7 +22,8 @@ public class Cookie : InteractableObject
         {
             base.Interact();
             interactable = false;
-            this.gameObject.SetActive(false);        
+            this.gameObject.SetActive(false);  
+            GameObject.Find("Mum").GetComponent<PathfinderController>().SwitchState(MumStates.PLAYER_FOUND);
         }
 
 

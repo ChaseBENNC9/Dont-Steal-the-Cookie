@@ -26,7 +26,6 @@ public class Stool : InteractableObject
     public void StepOff()
     {
         
-        player.GetComponent<PlayerMovement>().enableMovement = false;
         controller.enabled = false;
         player.transform.position = lastLocation;
         controller.enabled = true;
