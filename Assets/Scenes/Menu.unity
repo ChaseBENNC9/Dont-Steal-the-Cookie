@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &47379330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5415447301067240806, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
+  m_PrefabInstance: {fileID: 6466070024207097085}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &54982065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,7 +501,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1332101776}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -546,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafa5b979493cae48bdef3e5a3e92229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
-  previousScene: 
+  previousScreen: NONE
   sceneType: 0
 --- !u!114 &572439279
 MonoBehaviour:
@@ -940,7 +945,6 @@ GameObject:
   - component: {fileID: 1404226121}
   - component: {fileID: 1404226120}
   - component: {fileID: 1404226122}
-  - component: {fileID: 1404226123}
   - component: {fileID: 1404226124}
   - component: {fileID: 1404226126}
   - component: {fileID: 1404226125}
@@ -1121,7 +1125,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1404226124}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: PreviousScreen
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1141,18 +1145,6 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1404226123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404226119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f42fd548dea334db5d147eb41c1e10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
 --- !u!114 &1404226124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,7 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 47379330}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!1 &1890500836
