@@ -27,4 +27,16 @@ public class InventoryItem : MonoBehaviour
             return false;
         }
     }
+    public bool UnEquip(InventoryItem item)
+    {
+        if (playerInventory.currentItem == item)
+        {
+            playerInventory.currentItem = null;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

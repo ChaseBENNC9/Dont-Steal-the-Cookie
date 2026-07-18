@@ -27,4 +27,9 @@ public class Key : InteractableObject
 
 
     }
+    public void Use()
+    {
+        this.GetComponent<InventoryItem>().UnEquip(this.GetComponent<InventoryItem>());
+
+    }
 }

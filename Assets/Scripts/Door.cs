@@ -8,6 +8,7 @@ public class Door : InteractableObject
     public bool isLocked;
     public Transform doorTransform;
     [SerializeField] private PlayerInventory playerInventory;
+    public GameObject padlock;
     protected void Start()
     {
         playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
@@ -17,6 +18,7 @@ public class Door : InteractableObject
         {
             doorTransform = this.transform;
         }
+        padlock.SetActive(isLocked);
 
     }
 
@@ -34,9 +36,12 @@ public class Door : InteractableObject
         {
             if (playerInventory.currentItem != null)
             {
-                if (playerInventory.currentItem.GetComponent<InteractableObject>() == myKey)
+                if (playerInventory.currentItem.GetComponent<Key>() == myKey)
                 {
                     isLocked = false;
+                    playerInventory.currentItem.GetComponent<Key>().Use();
+                    padlock.SetActive(isLocked);
+
                 }
             }
         }
