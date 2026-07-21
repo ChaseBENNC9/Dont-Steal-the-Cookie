@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 5692227034539609445}
   - component: {fileID: 5742805554102741227}
   - component: {fileID: 4616715033488182270}
+  - component: {fileID: 896042579682786851}
+  - component: {fileID: 742149762487039362}
+  - component: {fileID: 1433312509465457130}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -118,13 +121,49 @@ MonoBehaviour:
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InputTypeManager, Assembly-CSharp
+        m_MethodName: OnInputDeviceChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_DeviceRegainedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InputTypeManager, Assembly-CSharp
+        m_MethodName: OnInputDeviceChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_ControlsChangedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InputTypeManager, Assembly-CSharp
+        m_MethodName: OnInputDeviceChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
@@ -227,11 +266,35 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e41e5fe8-4e34-4462-8f47-5eb7e80d55d8
     m_ActionName: 'Player/PauseGame[/Keyboard/escape]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: PreviousScreen
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 188e86fd-0275-4695-8b25-bc834434b058
     m_ActionName: 'UI/PreviousMenu[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -266,6 +329,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractions
   target: {fileID: 0}
   nearbyInteractables: []
+--- !u!114 &896042579682786851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243289531387112896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baff8732cd3074ef88b34f9cc487846d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::ES3Internal.ES3Prefab
+  prefabId: 4182233969128650642
+  localRefs:
+    _Keys:
+    - {fileID: 3312751510961269207}
+    - {fileID: 5742805554102741227}
+    - {fileID: 896042579682786851}
+    - {fileID: 4800000, guid: 36e335017ad71d54fbb10842863188ae, type: 3}
+    - {fileID: 4030277349301874058}
+    - {fileID: 2100000, guid: 0cf50d67dbfa2814fb7e2a292583dd80, type: 2}
+    - {fileID: 2046732090418642188}
+    - {fileID: 6099230180156893291}
+    - {fileID: 742149762487039362}
+    - {fileID: 4616715033488182270}
+    - {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    - {fileID: 3801456652210216684}
+    - {fileID: 5407075539335082712}
+    - {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - {fileID: 8775704927966435200}
+    - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: 3803791955052696237}
+    - {fileID: 8310226459686968221}
+    - {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    - {fileID: 1197198576014674512}
+    - {fileID: 5692227034539609445}
+    - {fileID: 1884594951272853507}
+    - {fileID: 2100000, guid: 2e2fd58bcaab9d949922b625d2034974, type: 2}
+    - {fileID: 2800000, guid: 40265a896a0f341bb956e90c59025a29, type: 3}
+    - {fileID: 8485644446384305271}
+    - {fileID: 1433312509465457130}
+    - {fileID: 3243289531387112896}
+    - {fileID: 4268707780866144128}
+    _Values: 28394b148c255208cf0f0fa60a1acd50ecb69220f1f7f47365d467cadef20f42a0b9c6aef7e66433e0526e44ea965e19222dfe79ff1e8c1478eda0012ba513202ebeac2e02031a74421b84d632893f29b483f86254c60a17113b3a650f3bca5abccbf7c08d2fa57ab4936e1732a5417c8d052eda1b22cc7de376d5f7436b166272a83c7ef6cfaa185a71451b1868b8347310b2a6c35b7561336cee5c08af304f36ac29b059736b3e6c98dd827e6ced02b89da0396aa1a072da3a5a27ff64460d220a5cfbfa6341499e83e8a5065311205baca45df6304c687c0b89dbe2c0726384a358f849ee8f38
+--- !u!114 &742149762487039362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243289531387112896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfcc9ceea0bf419cb3bcaf548c2600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::ES3AutoSave
+  saveLayer: 0
+  saveTag: 1
+  saveName: 1
+  saveHideFlags: 1
+  saveActive: 1
+  saveChildren: 0
+  saveDestroyed: 0
+  componentsToSave:
+  - {fileID: 4616715033488182270}
+  - {fileID: 5742805554102741227}
+  - {fileID: 5692227034539609445}
+  - {fileID: 6099230180156893291}
+  - {fileID: 8310226459686968221}
+  - {fileID: 4268707780866144128}
+  - {fileID: 3803791955052696237}
+  - {fileID: 1433312509465457130}
+--- !u!114 &1433312509465457130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243289531387112896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf3c99ed29c6ab6449c9c5246a86ba0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
+  currentItem: {fileID: 0}
 --- !u!1 &3801456652210216684
 GameObject:
   m_ObjectHideFlags: 0
