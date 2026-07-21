@@ -64,4 +64,6 @@ public class Door : InteractableObject
             doorTransform.Rotate(new Vector3(0,1,0),-90);
         }
     }
+
+    
 }

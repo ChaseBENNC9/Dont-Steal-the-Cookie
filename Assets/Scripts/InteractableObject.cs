@@ -11,7 +11,6 @@ public class InteractableObject : MonoBehaviour
 
     protected virtual void Awake()
     {
-        interactable = true;
         interacted = false;
     }
 

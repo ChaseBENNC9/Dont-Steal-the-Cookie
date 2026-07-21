@@ -21,7 +21,7 @@ public class GoalManager : MonoBehaviour
     }
      void Start()
     {
-        print(Instance);
+;
         GameObject g = GameObject.Instantiate(goalPrefab,goalContainer);
         currentGoal = g.GetComponent<Goal>();
         currentGoal.Init(GameSettings.goals[0]);

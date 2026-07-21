@@ -14,6 +14,6 @@ public class PersistentObject : MonoBehaviour
 
         // Set the active instance and protect it from destruction
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 }

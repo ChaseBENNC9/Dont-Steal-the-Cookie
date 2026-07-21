@@ -5,7 +5,6 @@ public class PauseNavigation : MonoBehaviour
 {
     private void OnEnable()
     {
-        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public UnityEvent eventsLoadingOptions;
@@ -20,9 +19,8 @@ public class PauseNavigation : MonoBehaviour
     {
         
     }
-    private void OnSceneUnloaded(Scene scene)
+    private void LeaveOptions()
     {
-        if (scene.name == "Options")
         {
             if (SceneManager.GetActiveScene().name == "House")
             {

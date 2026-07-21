@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
-    public enum InputTypes
+using System.Data.Common;
+public enum InputTypes
     {
+        UNKNOWN,
         TOUCH,
         GAMEPAD,
-        KEYBOARD,
-        UNKNOWN
+        KEYBOARD
+        
     }
     public enum SceneTypes
 {
@@ -19,8 +21,17 @@ public class InputTypeManager : MonoBehaviour
     public static InputTypeManager Instance;
     private void Awake()
     {
+;
+       if (TryGetComponent<PlayerInput>(out PlayerInput input))
+        {   
+            currentInputType = GetInputDevice(input);
+        }
+        else
+        {
+            currentInputType = GetInputDevice(GameObject.Find("Player").GetComponent<PlayerInput>());
+        }
+        
        UpdateUI();
-       currentInputType = GetInputDevice(GetComponent<PlayerInput>());
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject); // Destroy the duplicate
@@ -33,8 +44,8 @@ public class InputTypeManager : MonoBehaviour
     public void OnInputDeviceChange(PlayerInput playerInput)
     {
         currentInputType = GetInputDevice(playerInput);
-        print("CHANGED DEVICE!!");
-        print(currentInputType);
+;
+;
         UpdateUI();
     }
 
@@ -52,11 +63,15 @@ public class InputTypeManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        Cursor.visible = currentInputType == InputTypes.KEYBOARD;
-        MenuTooltipIcon[] icons = GameObject.FindObjectsByType<MenuTooltipIcon>();
-        foreach (MenuTooltipIcon icon in icons)
+        if(GameSettings.gameState == GameState.MENU || GameSettings.gameState == GameState.PAUSED)
         {
-            icon.UpdateUI(currentInputType);
+            // Cursor.visible = currentInputType == InputTypes.KEYBOARD;
+            MenuTooltipIcon[] icons = GameObject.FindObjectsByType<MenuTooltipIcon>();
+            foreach (MenuTooltipIcon icon in icons)
+            {
+                icon.UpdateUI(currentInputType);
+            }       
         }
+
     }
 }

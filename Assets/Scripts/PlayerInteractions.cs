@@ -10,6 +10,7 @@ public class PlayerInteractions : MonoBehaviour
 
     void Update()
     {
+        
         if( nearbyInteractables.Count != 0)
         {
             

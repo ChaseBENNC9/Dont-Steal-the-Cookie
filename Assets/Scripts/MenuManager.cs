@@ -1,15 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
+using System.Collections;
+using UnityEngine.InputSystem;
 public class MenuManager : MonoBehaviour
 {
-        public void PreviousScreen()
+
+    public void Start()
     {
-        if (MenuInfo.Instance.previousScene !="NONE")
-            SceneManager.LoadScene(MenuInfo.Instance.previousScene);
-        else
-        {
-        }
+        Time.timeScale = 1;
     }
+
 }

@@ -9,11 +9,13 @@ public class Stool : InteractableObject
     private CharacterController controller;
     private PlayerMovement movement;
     public Transform pos;
+    private Rigidbody rb;
 
     void Start()
     {
         controller = player.GetComponent<CharacterController>();
         movement = player.GetComponent<PlayerMovement>();
+        rb = GetComponent<Rigidbody>();
     }
     public void StepOn()
     {
@@ -22,6 +24,7 @@ public class Stool : InteractableObject
         controller.enabled = false;
         player.transform.position = pos.position;
         controller.enabled = true;
+        rb.constraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
     }
     public void StepOff()
     {
@@ -30,6 +33,8 @@ public class Stool : InteractableObject
         player.transform.position = lastLocation;
         controller.enabled = true;
         movement.enableMovement = true;
+        rb.constraints &= ~(RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ);
+
     }
     public override void Interact()
     {

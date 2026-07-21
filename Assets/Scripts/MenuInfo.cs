@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MenuInfo : MonoBehaviour
 {
     public static MenuInfo Instance;
-    public string previousScene;
+    public string previousScreen;
     public SceneTypes sceneType;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -21,9 +21,9 @@ public class MenuInfo : MonoBehaviour
     }
     void Start()
     {
-        if (previousScene.Trim() == "" || previousScene == null)
+        if (previousScreen.Trim() == "" || previousScreen == null)
         {
-            previousScene = "NONE";
+            previousScreen = "NONE";
         }
     }
 

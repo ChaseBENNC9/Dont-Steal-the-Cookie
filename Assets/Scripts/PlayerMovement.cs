@@ -18,14 +18,11 @@ public class PlayerMovement : MonoBehaviour
     {
         lookDirection = transform.forward;
         characterController = GetComponent<CharacterController>();
-        if (InputTypeManager.Instance != null)
-        {
-            Destroy(InputTypeManager.Instance.gameObject);
-            GetComponent<PlayerInput>().enabled = false;
-            GetComponent<PlayerInput>().enabled = true;
-            
-            
-        }
+    
+        // GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        print(GetComponent<PlayerInput>().currentActionMap);
+        print(GetComponent<PlayerInput>().currentControlScheme);
+        
 
         enableMovement = true;
     }

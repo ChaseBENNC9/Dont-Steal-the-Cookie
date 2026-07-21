@@ -10,7 +10,7 @@ public class CameraTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             confine.BoundingVolume = this.GetComponent<BoxCollider>();
-            Debug.Log("HEY!");
+;
         }
 
     }
