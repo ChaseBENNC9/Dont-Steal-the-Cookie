@@ -118,3 +118,14 @@ InitTestScene*.unity*
 
 #Builds
 */Builds
+
+
+#Imported assets
+/[Aa]ssets/Supercyan
+/[Aa]ssets/Plugins
+/Assets/LowPolyInterior
+/Assets/Kenney
+/Assets/Easy Save 3
+/Assets/BTM_Assets
+/Assets/Aztech Games
+/Assets/Brick Project Studio
