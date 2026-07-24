@@ -65,5 +65,32 @@ public class Door : InteractableObject
         }
     }
 
-    
+    private void Open()
+    {
+        doorTransform.Rotate(new Vector3(0,1,0),-90);
+
+    }
+    private void Close()
+    {
+        doorTransform.Rotate(new Vector3(0,1,0),90);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        print("TRIGGER");
+        if(other.gameObject.CompareTag("Mum") )
+        {
+            Open();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        print("TRIGGER");
+        if(other.gameObject.CompareTag("Mum"))
+        {
+            Close();
+        }
+    }
+
+
+
 }

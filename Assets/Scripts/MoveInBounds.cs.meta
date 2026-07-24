@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d8ccdbb9e9ee6d044852e93d773cdb68
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 307493
+  packageName: Waypoint and Pathfinding System
+  packageVersion: 1.0
+  assetPath: Assets/Scripts/MoveInBounds.cs
+  uploadId: 728776
