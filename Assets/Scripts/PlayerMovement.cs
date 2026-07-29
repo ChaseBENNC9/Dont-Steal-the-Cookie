@@ -3,8 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviour
+[RequireComponent(typeof(CharacterController))]6public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 5f;
     public bool enableMovement;

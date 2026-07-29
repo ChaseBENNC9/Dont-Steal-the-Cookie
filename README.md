@@ -50,7 +50,8 @@ PC / Web / Mobile
 ### Demo Section
 - Start in the Living Room
 - Mum comes in to tell you "Don't Steal the Cookie"
-- New Goal Acquired: **"Steal the Cookie"**
+- New Goal Acquired: **"Steal the Cookie"** 
+- Enter Dining Room
 - Enter Kitchen
 - Steal Cookie Attempt 1 (**fail**)
 - New Sub Goal: **"Find a way to reach the cookies"** (Stool is Glowing)
@@ -63,39 +64,37 @@ PC / Web / Mobile
 - New Goal: **"Get to the Kitchen"**
 - Enter hallway
 - Mum is seen entering another room
-- Enter the Living Room (**door locked**)
+- Enter the Dining Room (**door locked**)
 - New Sub Goal: **"Find the Key"**
 - Enter Bathroom (**door locked**) → Say *"I think someone's in there"*
-- Enter Dining Room (**stop**) → Say *"Mum just went in there, I need to be careful"*
+- Enter Lounge (**stop**) → Say *"Mum just went in there, I need to be careful"*
 - Enter Parents Room
-- Find Key → Goal completed
-- Enter Hallway → Enter Living Room (**Door Opens**)
+- Find Key
+- Enter Hallway 
+- Enter Dining Room (**Door Opens**)
 - Enter Kitchen
-- Say *"oh no, the stool is gone"*
-- New Sub Goal: **"Find a way to reach the cookies"**
-- Finds ____ in ____
+- "Stool is Gone"
+- Finds Step Ladder in Laundry
 - Cookie Acquired
 
 ### Section 2
 - Mum says **"PLAYER NAME!!!!"**
 - New Goal: **"Hide"**
-- Mum Pathfinder switches to search mode
+- Mum Pathfinder switches to Patrol mode
 
 **Scenarios:**
 - Player hides → Mum enters, loops around the kitchen, then leaves
 - Player fails to hide → Mum enters, finds player → Section resets
 - New Goal: **"Get back to your room"**
-- Enter Living Room
-- Mum finishes loop and enters Dining Room
-
-**Continued:**
-- Enter Hallway (**Door Locked**) → Say *"It Won't Open"*
-- Player enters Dining Room
-- Mum does a slower loop around the dining room
-- Player enters hallway
-- Mum enters hallway
-- Player enters bedroom
-- **Game Complete**
+- Enter Dining Room
+- Mum finishes loop and enters Lounge
+- Enter Hallway (**Door Locked**)
+- Enters Lounge
+- Mum does a slower loop around the room
+- Enter Hallway
+- Mum enters Hallway
+- Enters Bedroom
+- **Level Completed**
 
 ---
 
@@ -107,16 +106,13 @@ PC / Web / Mobile
 - For story purposes
 - Does not transition to or from this state naturally
 
-### Search
-- Active pathfinding
-- Actively looking for Player
-- Enters Room and follows a set path
-- Exits Room
-- If player is spotted → transitions to **Found** mode
+### Patrol
+- Navigates around a selected room
+
 
 ### Found
 - Moves towards the player with increased speed
-- If player leaves line of sight and hides → transitions back to **Search** mode
+- If player leaves line of sight and hides → transitions back to **Patrol** mode
 
 ---
 
@@ -124,16 +120,12 @@ PC / Web / Mobile
 - Static camera above Player
 - Player rotates to face walking direction
 
-**Room Visibility Rules:**
-- Rooms are only visible if:
-  - Player is inside, **or**
-  - Player has visited and is within range
-
-*Example:* When leaving the kitchen in Section 2, the Living Room is slightly visible so the player can time their exit.
-
----
 
 ## Player Customization
 - Custom Choice Character Name
 - Custom Choice Character Appearance
 
+
+## Layout Concept
+
+![alt text](20260729_200727.jpg)
