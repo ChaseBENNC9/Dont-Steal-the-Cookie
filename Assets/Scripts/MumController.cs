@@ -2,8 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using AztechGames;
-using Unity.VisualScripting;
-using System.Runtime.CompilerServices;
+using System.Collections;
+using UnityEngine.UI;
+using System.Threading.Tasks;
 
 public enum MumState
 {
@@ -34,6 +35,8 @@ public class MumController : MonoBehaviour
     public List<Vector3> targetsList;
 
     public List<MumWaypoint> betterTargetsList;
+    public GameObject SpeechBubble;
+    private Text speechText;
 
     private int index;
     
@@ -44,6 +47,7 @@ public class MumController : MonoBehaviour
         state = MumState.PATROL;
         moveDirection = Vector3.zero;
         movementController.target.position = movementController.waypoint.GetWorldPosition(betterTargetsList[index].targetPosition);
+        speechText = SpeechBubble.GetComponentInChildren<Text>();
 
     }
 
@@ -71,7 +75,14 @@ public class MumController : MonoBehaviour
             if(betterTargetsList[index-1].type == WaypointType.CONTINUE)
                 state = MumState.PATROL;
             else if (betterTargetsList[index-1].type == WaypointType.WAIT)
+            {
                 state = MumState.STOPPED;
+                SpeechBubble.SetActive(true);   
+                StartCoroutine(Wait(3));
+
+
+    
+            }
             
         }
         else
@@ -80,9 +91,15 @@ public class MumController : MonoBehaviour
         }
         
     }
-    private void MumEvent()
+    private IEnumerator Wait(float seconds)
     {
-        
+        yield return new WaitForSeconds(seconds);
+        SpeechBubble.SetActive(false);   
+        state = MumState.PATROL;
+    }
+
+    private async Task MumEvent()
+    {
     }
 
     public void PatrolRoom()

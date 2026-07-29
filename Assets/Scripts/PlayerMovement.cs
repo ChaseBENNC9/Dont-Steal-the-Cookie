@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public bool enableMovement;
     private Vector3 movementDirection;
     private Vector3 lookDirection;
+    [SerializeField] private Animator animator;
 
     private CharacterController characterController;
 
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
         
 
         enableMovement = true;
+        animator.SetBool("Grounded", true);
+
     }
 
 
@@ -37,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
             characterController.SimpleMove(movementSpeed * movementDirection);
         }
             transform.forward = lookDirection;
+            animator.SetFloat("MoveSpeed", movementDirection.magnitude);
+
+
         
 
     }
