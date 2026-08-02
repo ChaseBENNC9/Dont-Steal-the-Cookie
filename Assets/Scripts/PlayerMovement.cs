@@ -3,19 +3,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]6public class PlayerMovement : MonoBehaviour
+[RequireComponent(typeof(CharacterController))]
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 5f;
     public bool enableMovement;
     private Vector3 movementDirection;
     private Vector3 lookDirection;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator femaleRig;
+    [SerializeField] private Animator maleRig;
+    private Animator animator;
 
     private CharacterController characterController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animator = SelectCharacter(GameSettings.playerCharacter);
         lookDirection = transform.forward;
         characterController = GetComponent<CharacterController>();
     
@@ -29,7 +33,22 @@ using UnityEngine.InputSystem;
 
     }
 
+    private Animator SelectCharacter(GameSettings.CharacterSelection selection)
+    {
+        if(selection == GameSettings.CharacterSelection.MALE)
+        {
+            Destroy(femaleRig.gameObject);
+            maleRig.gameObject.SetActive(true);
 
+            return maleRig;
+        }
+        else
+        {
+            Destroy(maleRig.gameObject);
+            femaleRig.gameObject.SetActive(true);
+            return femaleRig;
+        }
+    }
     // Update is called once per frame
     void Update()
     {

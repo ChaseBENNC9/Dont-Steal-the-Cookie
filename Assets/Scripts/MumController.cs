@@ -31,6 +31,8 @@ public class MumController : MonoBehaviour
     private MoveInBounds movementController;
     public Vector3 moveDirection;
     [SerializeField] private MumState state;
+    [SerializeField] private Animator animator;
+
 
     public List<Vector3> targetsList;
 
@@ -42,6 +44,8 @@ public class MumController : MonoBehaviour
     
     private void Start()
     {
+        animator.SetBool("Grounded", true);
+
         index = 0;
         movementController = GetComponent<MoveInBounds>();
         state = MumState.PATROL;
@@ -54,6 +58,8 @@ public class MumController : MonoBehaviour
     private void Update()
     {
         transform.forward = moveDirection;
+        animator.SetFloat("MoveSpeed", moveDirection.magnitude);
+
         if (state == MumState.PATROL)
         {            
             switch (movementController.movementType)
