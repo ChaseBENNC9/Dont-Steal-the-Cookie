@@ -17,5 +17,6 @@ public class CharacterSelection : MonoBehaviour
     public void SelectCharacter(int selection)
     {
         GameSettings.playerCharacter = (GameSettings.CharacterSelection)selection;
+        ES3.Save("SelectedCharacter", GameSettings.playerCharacter);
     }
 }

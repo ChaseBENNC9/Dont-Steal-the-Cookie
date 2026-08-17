@@ -46,7 +46,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void MainMenu()
     {
-        ES3AutoSaveMgr.Current.Save();
+        // ES3AutoSaveMgr.Current.Save();
         SceneManager.LoadScene("Menu");
     }
 

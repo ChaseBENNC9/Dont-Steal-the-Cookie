@@ -1,5 +1,4 @@
 //Manges players movement input and rotates the player to face in the direction of movement
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameSettings.playerCharacter = ES3.Load("SelectedCharacter",GameSettings.playerCharacter);
         animator = SelectCharacter(GameSettings.playerCharacter);
         lookDirection = transform.forward;
         characterController = GetComponent<CharacterController>();
@@ -28,11 +28,21 @@ public class PlayerMovement : MonoBehaviour
         print(GetComponent<PlayerInput>().currentControlScheme);
         
 
-        enableMovement = true;
         animator.SetBool("Grounded", true);
 
     }
 
+    public void TeleportToLocation(Vector3 position)
+    {
+        characterController.enabled = false;
+        gameObject.transform.position = position;
+        characterController.enabled = true;
+    }
+
+    public void EnableMovement(bool enable = true)
+    {
+        enableMovement = enable;
+    }
     private Animator SelectCharacter(GameSettings.CharacterSelection selection)
     {
         if(selection == GameSettings.CharacterSelection.MALE)
@@ -63,6 +73,11 @@ public class PlayerMovement : MonoBehaviour
 
         
 
+    }
+
+    public void PlayAnimation(string name)
+    {
+        animator.SetTrigger(name);
     }
 
     public void OnMove(InputAction.CallbackContext value)

@@ -5,26 +5,25 @@ using AztechGames;
 using System.Collections;
 using UnityEngine.UI;
 using System.Threading.Tasks;
+using UnityEngine.Events;
+using TMPro;
+using System.Xml.Serialization;
 
 public enum MumState
 {
     STOPPED,
-    NEUTRAL,
     PATROL
 }
 
 public enum WaypointType
 {
     CONTINUE,
-    WAIT
+    END,
+    TELEPORT
 }
 
 
-[Serializable] public class MumWaypoint
-{
-    public Vector3 targetPosition;
-    public WaypointType type;
-}
+
 [RequireComponent(typeof(MoveInBounds))]
 public class MumController : MonoBehaviour
 {
@@ -34,25 +33,33 @@ public class MumController : MonoBehaviour
     [SerializeField] private Animator animator;
 
 
-    public List<Vector3> targetsList;
-
-    public List<MumWaypoint> betterTargetsList;
+    [SerializeField] private List<MumWaypoint> targetsList;
     public GameObject SpeechBubble;
-    private Text speechText;
+    public TextMeshProUGUI speechText;
 
-    private int index;
-    
+    public int index;
+
+    public void SetMumState(int newstate)
+    {
+        print("SET MUM STATE");
+        state = (MumState)newstate;
+    }
     private void Start()
     {
+
         animator.SetBool("Grounded", true);
 
-        index = 0;
         movementController = GetComponent<MoveInBounds>();
-        state = MumState.PATROL;
+        SetMumState(1);
         moveDirection = Vector3.zero;
-        movementController.target.position = movementController.waypoint.GetWorldPosition(betterTargetsList[index].targetPosition);
-        speechText = SpeechBubble.GetComponentInChildren<Text>();
+        var sequence = SequenceManager.Instance.TriggerWalkSequence();
+        if (sequence != null)
+        {
+            index = 0;
+            targetsList = sequence.walkSequence;
+            movementController.target.position = movementController.waypoint.GetWorldPosition(targetsList[index].targetPosition);
 
+        }
     }
 
     private void Update()
@@ -61,7 +68,7 @@ public class MumController : MonoBehaviour
         animator.SetFloat("MoveSpeed", moveDirection.magnitude);
 
         if (state == MumState.PATROL)
-        {            
+        {
             switch (movementController.movementType)
             {
                 case MoveInBounds.MovementType.Path: movementController.MoveAlongPath2(); break;
@@ -71,47 +78,63 @@ public class MumController : MonoBehaviour
         }
     }
 
+    public void SayMessage(string message)
+    {
+        print("MESSAgGEGE");
+        speechText.text = message;
+        SpeechBubble.SetActive(true);
+    }
 
     public void PositionReached()
     {
-        index++;
-        if (index < betterTargetsList.Count)
+        print("POSITIOON REACHED");
+        if (targetsList[index].type == WaypointType.CONTINUE)
         {
-            movementController.target.position = movementController.waypoint.GetWorldPosition(betterTargetsList[index].targetPosition);
-            if(betterTargetsList[index-1].type == WaypointType.CONTINUE)
-                state = MumState.PATROL;
-            else if (betterTargetsList[index-1].type == WaypointType.WAIT)
+            if (index + 1 < targetsList.Count)
+                index++;
+            movementController.target.position = movementController.waypoint.GetWorldPosition(targetsList[index].targetPosition);
+            SetMumState(1);
+
+        }
+        else if (targetsList[index].type == WaypointType.TELEPORT)
+        {
+            if (index + 1 < targetsList.Count)
+                index++;
+            movementController.target.position = movementController.waypoint.GetWorldPosition(targetsList[index].targetPosition);
+            movementController.gameObject.transform.position = movementController.waypoint.GetWorldPosition(targetsList[index].targetPosition);
+            // SetMumState(1);
+
+        }
+        else if (targetsList[index].type == WaypointType.END)
+        {
+            SetMumState(0);
+            print("STOPPED");
+            SequenceManager.Instance.TriggerEndSequence();
+            var sequence = SequenceManager.Instance.TriggerWalkSequence();
+            if (sequence != null)
             {
-                state = MumState.STOPPED;
-                SpeechBubble.SetActive(true);   
-                StartCoroutine(Wait(3));
+                index = 0;
+                targetsList = sequence.walkSequence;
+                movementController.target.position = movementController.waypoint.GetWorldPosition(targetsList[index].targetPosition);
+     
 
-
-    
             }
-            
+
+
+
         }
-        else
-        {
-            state = MumState.STOPPED;
-        }
-        
-    }
-    private IEnumerator Wait(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        SpeechBubble.SetActive(false);   
-        state = MumState.PATROL;
+
+
+
+        // else
+        // {
+        //     SetMumState(0);
+        //     print("End");
+
+        // }
+
     }
 
-    private async Task MumEvent()
-    {
-    }
 
-    public void PatrolRoom()
-    {
-        ///get room first
-        state = MumState.PATROL;
-    }
 
 }

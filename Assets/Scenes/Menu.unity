@@ -1075,12 +1075,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5415447301067240806, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
       propertyPath: m_Name
-      value: MenuButton (2)
+      value: selectGirl
       objectReference: {fileID: 0}
     - target: {fileID: 6742263982019897449, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
       propertyPath: m_text
       value: SELECT
       objectReference: {fileID: 0}
+    - target: {fileID: 8761189495492737442, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2007465661}
+    - target: {fileID: 8761189495492737442, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 109481544}
     - target: {fileID: 9093861135757153290, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4178,7 +4186,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 127
 --- !u!114 &492157758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5197,15 +5205,15 @@ RectTransform:
   m_GameObject: {fileID: 699665972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 134408641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 36}
-  m_SizeDelta: {x: 260, y: 530}
+  m_AnchoredPosition: {x: 40, y: 36}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &699665974
 MonoBehaviour:
@@ -5227,7 +5235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c970baf46115d8041be3e6412ee188f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3bb98aa23d5560742b9f01e81937eb3e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5556,12 +5564,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5415447301067240806, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
       propertyPath: m_Name
-      value: MenuButton (1)
+      value: selectBoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415447301067240806, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6742263982019897449, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
       propertyPath: m_text
       value: SELECT
       objectReference: {fileID: 0}
+    - target: {fileID: 8761189495492737442, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2007465661}
+    - target: {fileID: 8761189495492737442, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 732840919}
     - target: {fileID: 9093861135757153290, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6604,15 +6624,15 @@ RectTransform:
   m_GameObject: {fileID: 868729311}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 134408641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 36}
-  m_SizeDelta: {x: 309, y: 527}
+  m_AnchoredPosition: {x: -40, y: 36}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &868729313
 MonoBehaviour:
@@ -6634,7 +6654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 301b928333cea2a41b89d89a518e5682, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b7347814fe07074cb8ae79176ba7ef6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10524,12 +10544,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5415447301067240806, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
       propertyPath: m_Name
-      value: MenuButton
+      value: startgame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415447301067240806, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6742263982019897449, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
       propertyPath: m_text
       value: START
       objectReference: {fileID: 0}
+    - target: {fileID: 8761189495492737442, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2007465661}
+    - target: {fileID: 8761189495492737442, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2108571384}
     - target: {fileID: 9093861135757153290, guid: b95b751ad7c6039479ada3e87139e3c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

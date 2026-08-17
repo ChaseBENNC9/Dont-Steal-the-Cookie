@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class Stool : InteractableObject
 {
-    private Vector3 lastLocation;
+    [SerializeField] private Vector3 lastLocation;
     public GameObject player;
     private CharacterController controller;
     private PlayerMovement movement;

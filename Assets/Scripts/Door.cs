@@ -31,6 +31,7 @@ public class Door : InteractableObject
 
     public override void Interact()
     {
+        // playerInventory.gameObject.GetComponent<PlayerMovement>().PlayAnimation("Pickup");
 
         if (isLocked)
         {

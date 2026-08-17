@@ -149,13 +149,12 @@ public void MoveAlongPath2()
 
         public void MoveAlongTarget()
         {
+            print("MOVEALONGTARGET");
             if (waypoint == null || target == null) return;
             Vector3 targetWorldPosition = waypoint.GetWorldPosition(waypoint.GetPathLimit(target.position));
-            print(targetWorldPosition);
-            print(target.position);
+
             Vector3 walkTo = new Vector3(target.position.x,0.5f,target.position.z);
             GetComponent<MumController>().moveDirection = walkTo - transform.position ;
-            print(waypoint.GetGridPosition(target.position));  
             if (!waypoint.GetNode(waypoint.GetGridPosition(target.position)).IsWalkable) targetWorldPosition = waypoint.FindNearestWalkableNode(targetWorldPosition);
             else if (Vector3.Distance(transform.position, walkTo) > arrivalThreshold) transform.position = Vector3.MoveTowards(transform.position, walkTo, moveSpeed * Time.deltaTime);
             else GetComponent<MumController>().PositionReached();

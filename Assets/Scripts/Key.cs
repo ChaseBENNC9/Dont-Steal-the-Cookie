@@ -18,6 +18,8 @@ public class Key : InteractableObject
 
     public override void Interact()
     {
+        // GameObject.Find("Player").GetComponent<PlayerMovement>().PlayAnimation("Pickup");
+
         if(this.GetComponent<InventoryItem>().Equip(this.GetComponent<InventoryItem>()))
         {
             base.Interact();
