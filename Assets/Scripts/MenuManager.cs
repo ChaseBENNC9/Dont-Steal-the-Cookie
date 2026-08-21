@@ -10,10 +10,7 @@ public class MenuManager : MonoBehaviour
         private GameObject currentlySelected;
 
 
-            private void Awake()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+ 
 
         private void Start()
         {
