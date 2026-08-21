@@ -65,7 +65,7 @@ public class InputTypeManager : MonoBehaviour
     {
         if(GameSettings.gameState == GameState.MENU || GameSettings.gameState == GameState.PAUSED)
         {
-            // Cursor.visible = currentInputType == InputTypes.KEYBOARD;
+            Cursor.visible = currentInputType == InputTypes.KEYBOARD;
             MenuTooltipIcon[] icons = GameObject.FindObjectsByType<MenuTooltipIcon>();
             foreach (MenuTooltipIcon icon in icons)
             {
