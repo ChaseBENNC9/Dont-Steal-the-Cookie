@@ -1,25 +1,53 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using Unity.AppUI.UI;
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance;
+    public GameObject mainMenuParent,optionsParent,loadSlots, saveSlots,characterSelection;
+
     private EventSystem currentEventSystem;
     private GameObject currentlySelected;
+    private Stack<GameObject> menuPanelStack;
 
-
-
-
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Destroy the duplicate
+            return;
+        }
+        Instance = this;
+    }
     private void Start()
     {
         Time.timeScale = 1;
-
+        menuPanelStack = new Stack<GameObject>();
         currentEventSystem = EventSystem.current;
         currentlySelected = currentEventSystem.currentSelectedGameObject;
     }
+
+    public void AddToMenuStack(GameObject panel)
+    {
+        if (menuPanelStack.Contains(panel)) return;
+        menuPanelStack.Push(panel);
+        panel.SetActive(true);
+    }
+    public void PopMenuStack()
+    {
+        Debug.Log("POP");
+        if(menuPanelStack.Count < 1) return;
+        GameObject panel = menuPanelStack.Pop();
+        Debug.Log("POPPED" + panel);
+        panel.SetActive(false);
+    }
+
 
     private void Update()
     {

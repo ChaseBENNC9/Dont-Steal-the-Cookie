@@ -3,33 +3,38 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.InputSystem;
+using System;
 
 public class MenuButtons : MonoBehaviour
 {
-    public GameObject mainMenuParent;
-    public GameObject optionsParent;
-    public GameObject loadSlots, saveSlots;
     public void PlayGame()
     {
         GameSettings.gameState = GameState.IN_GAME;
         Cursor.visible = false;
         SceneManager.LoadScene("House");
-
     }
     public void LoadGame()
     {
-        loadSlots.SetActive(true);
+        MenuManager.Instance.AddToMenuStack(MenuManager.Instance.loadSlots);
     }
 
     public void NewGame()
     {
-        saveSlots.SetActive(true);
+        MenuManager.Instance.AddToMenuStack(MenuManager.Instance.saveSlots);
+
+    }
+    public void CharacterSelection()
+    {
+        MenuManager.Instance.AddToMenuStack(MenuManager.Instance.characterSelection);
     }
     public void PreviousScreen(InputAction.CallbackContext value)
     {
-        optionsParent.SetActive(false);
+        if( value.performed){
+            
+        MenuManager.Instance.PopMenuStack();
+        }
 
-    } 
+    }
     public void Quit()
     {
         Application.Quit();
@@ -39,10 +44,10 @@ public class MenuButtons : MonoBehaviour
     {
         button.Select();
     }
-    
+
     public void Options()
     {
-        optionsParent.SetActive(true);
+        MenuManager.Instance.AddToMenuStack(MenuManager.Instance.optionsParent);
     }
     public void MainMenu()
     {
@@ -50,14 +55,14 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-        IEnumerator LoadYourAsyncScene()
+    IEnumerator LoadYourAsyncScene()
     {
         // The Application loads the Scene in the background as the current Scene runs.
         // This is particularly good for creating loading screens.
         // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
         // a sceneBuildIndex of 1 as shown in Build Settings.
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Options",LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)

@@ -112,6 +112,8 @@ public class SaveSlotsManager : ES3SlotManager
     public SaveSlot InstantiateEmptySlot(string slotName)
     {
         var slot = Instantiate(emptySlotTemplate, emptySlotTemplate.transform.parent);
+        slots.Add(slot);
+
         slot.SetActive(true);
         var es3SelectSlot = slot.GetComponent<SaveSlot>();
         es3SelectSlot.nameLabel.text = slotName.Replace('_', ' ');
