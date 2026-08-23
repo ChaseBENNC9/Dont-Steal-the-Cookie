@@ -98,7 +98,7 @@ public class SaveSlotsManager : ES3SlotManager
         var es3SelectSlot = slot.GetComponent<SaveSlot>();
         es3SelectSlot.nameLabel.text = slotName.Replace('_', ' ');
         es3SelectSlot.characterName.text = name;
-        es3SelectSlot.characterGender.text = character.ToString();
+        es3SelectSlot.characterGender.sprite = GameSettings.PlayerCharacterSprite(character);
 
         // If the file doesn't have a timestamp, don't display the timestamp.
         if (timestamp == falseDateTime)
@@ -117,7 +117,6 @@ public class SaveSlotsManager : ES3SlotManager
         es3SelectSlot.nameLabel.text = slotName.Replace('_', ' ');
         es3SelectSlot.timestampLabel.text = "";
         es3SelectSlot.characterName.text = "";
-        es3SelectSlot.characterGender.text = "";
         return es3SelectSlot;
 
 

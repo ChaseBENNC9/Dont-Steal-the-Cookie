@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 public enum GameState
 {
     MENU,
@@ -22,6 +23,18 @@ public static class GameSettings
     public static string FormatMessage(string message)
     {
         return message.Replace("<Player>",playerName).Replace("<PLAYER>",playerName.ToUpper());
+    }
+
+    public static Sprite PlayerCharacterSprite(CharacterSelection character)
+    {
+        if (character == CharacterSelection.MALE)
+        {
+            return Resources.Load<Sprite>("character_profile_player_m");
+        }
+        else 
+        {
+            return Resources.Load<Sprite>("character_profile_player_f");
+        }
     }
 
 }

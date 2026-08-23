@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class SaveSlot : ES3Slot
 {
     public TMP_Text characterName;
-    public TMP_Text characterGender;
+    public Image characterGender;
 
 #region Initialisation and Clean-up
 
