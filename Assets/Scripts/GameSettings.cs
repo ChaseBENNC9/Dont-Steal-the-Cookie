@@ -25,6 +25,10 @@ public static class GameSettings
         return message.Replace("<Player>",playerName).Replace("<PLAYER>",playerName.ToUpper());
     }
 
+    public static float MusicVolume;
+    public static float SoundEffectsVolume;
+    public static float MasterVolume;
+    public static bool Mute;
     public static Sprite PlayerCharacterSprite(CharacterSelection character)
     {
         if (character == CharacterSelection.MALE)
