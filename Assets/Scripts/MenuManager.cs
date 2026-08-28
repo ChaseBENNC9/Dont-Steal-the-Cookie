@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
-using Unity.AppUI.UI;
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
     public GameObject mainMenuParent,optionsParent,loadSlots, saveSlots,characterSelection;
 
     private EventSystem currentEventSystem;
+    public EventSystem CurrentEventSystem  {  get => currentEventSystem;}
     private GameObject currentlySelected;
     private Stack<GameObject> menuPanelStack;
 
@@ -38,6 +38,15 @@ public class MenuManager : MonoBehaviour
         if (menuPanelStack.Contains(panel)) return;
         menuPanelStack.Push(panel);
         panel.SetActive(true);
+        if (panel.TryGetComponent<MenuPanel>(out MenuPanel menuPanel)){
+            if(menuPanel.firstSelected != null)
+            {
+                if (menuPanel.firstSelected.TryGetComponent<Selectable>(out Selectable selectable))
+                {
+                    selectable.Select();
+                }
+            }
+        }
     }
     public void PopMenuStack()
     {

@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class SaveSlotsManager : ES3SlotManager
 {
@@ -25,7 +26,6 @@ public class SaveSlotsManager : ES3SlotManager
     public int maximumSaveSlots = 3;
     public GameObject emptySlotTemplate;
 
-    // See Unity's docs for more info: https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnEnable.html
     protected override void OnEnable()
     {
          Debug.Log(Application.persistentDataPath);
@@ -38,6 +38,10 @@ public class SaveSlotsManager : ES3SlotManager
         // Create our save slots if any exist.
         InstantiateSlots();
     }
+    private void Start()
+    {
+        slots[0].transform.Find("Choose Slot Button").GetComponent<Selectable>().Select();
+    }
 
     // Finds the save slot files and instantiates a save slot for each of them.
     protected override void InstantiateSlots()
@@ -46,22 +50,24 @@ public class SaveSlotsManager : ES3SlotManager
         List<(string Name, DateTime Timestamp,string characterName, GameSettings.CharacterSelection characterGender)> slots = new List<(string Name, DateTime Timestamp,string characterName, GameSettings.CharacterSelection characterGender)>();
 
         // If there are no slots to load, do nothing.
-        if (!ES3.DirectoryExists(slotDirectory))
-            return;
+        if (ES3.DirectoryExists(slotDirectory))
 
-
-        // Put each of our slots into a List so we can order them.
-        foreach (var file in ES3.GetFiles(slotDirectory))
         {
-            // Get the slot name, which is the filename without the extension.
-            var slotName = Path.GetFileNameWithoutExtension(file);
-            // Get the timestamp so that we can display this to the user and use it to order the slots.
-            var timestamp = ES3.GetTimestamp(GetSlotPath(slotName)).ToLocalTime();
-            var savedPlayerName = ES3.Load<string>("PlayerName",slotDirectory + Path.GetFileName(file),"Sam");
-            var savedCharacter = ES3.Load<GameSettings.CharacterSelection>("SelectedCharacter",slotDirectory+Path.GetFileName(file));
-            // Add the data to the slot list.
-            slots.Add((Name: slotName, Timestamp: timestamp,characterName:savedPlayerName,characterGender: savedCharacter));
+            
+            // Put each of our slots into a List so we can order them.
+            foreach (var file in ES3.GetFiles(slotDirectory))
+            {
+                // Get the slot name, which is the filename without the extension.
+                var slotName = Path.GetFileNameWithoutExtension(file);
+                // Get the timestamp so that we can display this to the user and use it to order the slots.
+                var timestamp = ES3.GetTimestamp(GetSlotPath(slotName)).ToLocalTime();
+                var savedPlayerName = ES3.Load<string>("PlayerName",slotDirectory + Path.GetFileName(file),"Sam");
+                var savedCharacter = ES3.Load<GameSettings.CharacterSelection>("SelectedCharacter",slotDirectory+Path.GetFileName(file));
+                // Add the data to the slot list.
+                slots.Add((Name: slotName, Timestamp: timestamp,characterName:savedPlayerName,characterGender: savedCharacter));
+            }
         }
+
 
         Debug.Log($"I FOUND {slots.Count} slots the maximum amount is currently {maximumSaveSlots} so there is {maximumSaveSlots - slots.Count} extra spaces ");
         // Now order the slots by the timestamp.

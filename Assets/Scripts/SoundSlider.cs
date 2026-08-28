@@ -26,9 +26,8 @@ public class SoundSlider : MonoBehaviour
         SetSoundType(soundType,value);
     }
 
-    private void Onable()
+    private void OnEnable()
     {
-        LoadSettings();
     }
     private void OnDisable()
     {

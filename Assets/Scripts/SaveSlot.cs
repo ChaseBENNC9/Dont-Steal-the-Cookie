@@ -138,7 +138,7 @@ public class SaveSlot : ES3Slot
     }
 
     // Moves this slot to the top of the slots List ScrollView.
-    public void MoveToTop()
+    public new void MoveToTop()
     {
         transform.SetSiblingIndex(1);
     }

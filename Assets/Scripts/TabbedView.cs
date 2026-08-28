@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public class Tab
@@ -40,6 +41,7 @@ public class TabbedView : MonoBehaviour
 {
     public List<Tab> tabs;
     public Tab activeTab;
+    private int activeTabIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +49,8 @@ public class TabbedView : MonoBehaviour
             Debug.LogError("Cannot contain 0 tabs");
         else
         {
-            activeTab = tabs[0];
+            activeTabIndex = 0;
+            activeTab = tabs[activeTabIndex];
             foreach(Tab tab in tabs)
             {
             tab.Init();
@@ -62,7 +65,39 @@ public class TabbedView : MonoBehaviour
         activeTab.CloseTab();
         activeTab = tab;
         activeTab.OpenTab();
+        activeTabIndex = tabs.IndexOf(tab);
 
+    }
+
+    public void NextTab(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if(activeTabIndex == tabs.Count - 1)
+            {
+                activeTabIndex = 0;
+            }
+            else
+            {
+                activeTabIndex++;
+            }
+            OpenTab(tabs[activeTabIndex]);
+        }
+    }
+    public void PreviousTab(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if(activeTabIndex == 0)
+            {
+                activeTabIndex = tabs.Count-1;
+            }
+            else
+            {
+                activeTabIndex--;
+            }
+            OpenTab(tabs[activeTabIndex]);
+        }
     }
     // Update is called once per frame
     void Update()
